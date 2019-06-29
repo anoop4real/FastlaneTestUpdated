@@ -26,7 +26,7 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :custom_lane do
-    gym # Build your app - more options available
+    xcbuild # Build your app - more options available
   end
 
   # You can define as many lanes as you want
