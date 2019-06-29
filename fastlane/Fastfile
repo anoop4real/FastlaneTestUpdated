@@ -27,7 +27,7 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
 lane :custom_lane do |options|
   xcodebuild(
-    workspace: "FastLaneTestUpdated.xcworkspace",
+	project:"FastLaneTestUpdated.xcodeproj",
     scheme: "FastLaneTestUpdated",
     configuration: "Debug",
     clean: options[:clean],
