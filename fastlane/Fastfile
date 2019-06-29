@@ -25,9 +25,20 @@ platform :ios do
 
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
-  lane :custom_lane do
-    xcodebuild # Build your app - more options available
-  end
+lane :custom_lane do |options|
+  xcodebuild(
+    workspace: "FastLaneTestUpdated.xcworkspace",
+    scheme: "FastLaneTestUpdated",
+    configuration: "Debug",
+    clean: options[:clean],
+    build: true,
+    destination: "generic/platform=iOS",
+    build_settings: {
+      "CODE_SIGNING_REQUIRED" => "NO",
+      "CODE_SIGN_IDENTITY" => ""
+    }
+  )
+end
 
   # You can define as many lanes as you want
 
